@@ -1,0 +1,23 @@
+Conceitos básicos de mensageria: 
+
+-Filas: recebe as mensagens geradas por um producer. As mensagens ficarão dentro da fila até que alguma aplicação consumidora (consumer) retire a mensagem da fila
+
+-Produtores: é a aplicação que envia uma mensagem para uma queue do Message Broker
+
+-Consumidores: é a aplicação que consumirá as mensagens que estão presentes na fila
+
+-Tópicos: Os tópicos permitem que os produtores enviem mensagens para vários consumidores, enquanto as filas garantem que cada mensagem seja processada por apenas um consumidor
+
+-Partições: é um armazenamento de dados menor em um tópico que os consumidores assinam
+
+-Message Broker: Um Message Broker é um software que atua como intermediário na troca de mensagens entre diferentes sistemas ou aplicações. Ele permite que produtores (que enviam mensagens) e consumidores (que recebem mensagens) se comuniquem de forma assíncrona, desacoplando-os. Isso facilita a escalabilidade, a filtragem e o roteamento de mensagens, além de garantir a persistência das informações. Exemplos de Message Brokers incluem Apache Kafka e RabbitMQ. 
+
+Conhecer as diferenças e casos de uso de RabbitMQ, BullMQ e Kafka.
+
+No RabbitMQ, o agente garante que os consumidores recebam a mensagem, já com Kafka, o produtor não está ciente da recuperação de mensagens pelos consumidores e ao contrário do RabbitMQ, o Apache Kafka não oferece filas prioritárias. A ferramenta trata todas as mensagens da mesma forma ao distribuí-las em suas respectivas partições
+
+O RabbitMQ envia e enfileira mensagens em uma ordem específica. A menos que uma mensagem de maior prioridade seja colocada em fila no sistema, os consumidores recebem mensagens na ordem em que foram enviadas
+
+Enquanto isso, o Kafka usa tópicos e partições para enfileirar mensagens. Quando um produtor envia uma mensagem, ela entra em um tópico e uma partição específicos. Como o Kafka não permite trocas diretas entre produtores e consumidores, o consumidor extrai mensagens da partição em uma ordem diferente.
+
+O Kafka geralmente tem uma performance melhor que o RabbitMQ 
